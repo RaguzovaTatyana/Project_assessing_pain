@@ -2,6 +2,7 @@
 
 ## Techical task: 
   To develop an application for the automatic assessment of pain levels from video images of the face for further implementation in telemedicine systems. 
+  Language: Python
   
 ### Stages of development:
 + Find an appropriate dataset.
