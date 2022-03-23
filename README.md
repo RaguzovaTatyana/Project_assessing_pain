@@ -9,5 +9,8 @@
 + Compare the results of the analyzed models on the selected dataset.
 + Select the model and develop a user interface suitable for implementation in telemedicine systems.
 
+### Product type:
+A console application that supports different operating systems.
+ 
 ### The expected result:
   A script that takes video as input and outputs a person's estimated pain level based on the video.
