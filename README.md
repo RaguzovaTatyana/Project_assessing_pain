@@ -8,3 +8,6 @@
 + Investigate existing models that solve the problem of pain assessment using video images of faces.
 + Compare the results of the analyzed models on the selected dataset.
 + Select the model and develop a user interface suitable for implementation in telemedicine systems.
+
+### The expected result:
+  A script that takes video as input and outputs a person's estimated pain level based on the video.
