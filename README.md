@@ -2,6 +2,7 @@
 
 ## Techical task: 
   To develop an application for the automatic assessment of pain levels from video images of the face for further implementation in telemedicine systems. 
+  
   Language: Python
   
 ### Stages of development:
@@ -15,4 +16,5 @@ A console application that supports different operating systems.
  
 ### The expected result:
   A script that takes video as input and outputs a person's estimated pain level based on the video.
+  
   The pain level is defined by a value in the range from 0 to 10.
