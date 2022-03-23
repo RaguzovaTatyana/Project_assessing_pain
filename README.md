@@ -7,8 +7,8 @@
   
 ### Stages of development:
 + Find an appropriate dataset.
-+ Investigate existing models that solve the problem of pain assessment using video images of faces.
-+ Compare the results of the analyzed models on the selected dataset.
++ Investigate existing models and methods that solve the problem of pain assessment using video images of faces.
++ Compare the results of the analyzed models and methods on the selected dataset.
 + Select the model and develop a user interface suitable for implementation in telemedicine systems.
 
 ### Product type:
