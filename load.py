@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from utils import open_file, get_frame
 
-def load_dataset(main_dir, image_dir, label_dir, val_subj_id, test_subj_id, subset):
+def load_dataset(image_dir, label_dir):
     """
     Args:
         image_dir (string): Path to the image data "UNBCMcMaster_cropped/Images0.3"
@@ -19,10 +19,10 @@ def load_dataset(main_dir, image_dir, label_dir, val_subj_id, test_subj_id, subs
     frameVASpath = os.path.join(label_dir, 'Frame_Labels','PSPI')
     AUpath = os.path.join(label_dir, 'Frame_Labels', 'FACS')
     AAMpath = os.path.join(label_dir, 'AAM_landmarks')
-    image_files = [(root, name) for root, dirs, files in os.walk(image_dir) for name in sorted(files) if name[-3:]=='png' and 
-        ((name[2:5] in test_subj_id and subset=='test') or
-        (name[2:5] in val_subj_id and subset=='val') or 
-        (not(name[2:5] in val_subj_id+test_subj_id) and subset=='train'))]
+    for root, dirs, files in os.walk(image_dir):
+      print("root" + root)
+      print("dirs" + dirs)
+      print("files" + files)
 
 def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, frameVASpath, transform=None):
     """
