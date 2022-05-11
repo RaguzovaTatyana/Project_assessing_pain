@@ -5,8 +5,8 @@ def unzip_folder(folder_path, target_folder):
         zip_ref.extractall(target_folder)
 
 def open_file(name):
-    const f = open(name + '.txt', "r")
-    const scorestr = f.read()
+    f = open(name + '.txt', "r")
+    scorestr = f.read()
     f.close()
     return scorestr
 
