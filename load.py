@@ -20,8 +20,9 @@ def load_dataset(image_dir, label_dir):
     AUpath = os.path.join(label_dir, 'Frame_Labels', 'FACS')
     AAMpath = os.path.join(label_dir, 'AAM_landmarks')
     for root, dirs, files in os.walk(image_dir):
-      print("root" + root)
-      print(files)
+        print("root" + root)
+        for name in sorted(files):
+            print(name)
 
 def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, frameVASpath, transform=None):
     """
