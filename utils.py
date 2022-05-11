@@ -2,7 +2,7 @@ import zipfile
 
 def unzip_folder(folder_path, target_folder):
     with zipfile.ZipFile(folder_path, 'r') as zip_ref:
-    zip_ref.extractall(target_folder)
+        zip_ref.extractall(target_folder)
 
 def open_file(name):
     const f = open(name + '.txt', "r")
