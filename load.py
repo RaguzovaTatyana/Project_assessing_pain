@@ -4,7 +4,7 @@ import torch
 import os
 import cv2
 import numpy as np
-import open_file, get_frame from utils
+from utils import open_file, get_frame
 
 def load_dataset(main_dir, image_dir, label_dir, val_subj_id, test_subj_id, subset):
     """
@@ -24,7 +24,7 @@ def load_dataset(main_dir, image_dir, label_dir, val_subj_id, test_subj_id, subs
         (name[2:5] in val_subj_id and subset=='val') or 
         (not(name[2:5] in val_subj_id+test_subj_id) and subset=='train'))]
 
-def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, transform=None):
+def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, frameVASpath, transform=None):
     """
     Return: sample
         an example of sample:
@@ -93,7 +93,7 @@ def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, transform=None):
     aam = np.stack(aam)
 
 
-    sample = {'image': image, 'image_id': image_name, 'video_id': video_id, 'au': au, 'aam': aam,
+    sample = {'image': image, 'image_id': img_name, 'video_id': video_id, 'au': au, 'aam': aam,
         'framelabel': framelabel, 'subj_id': subj_id, 'videoVAS': videoVAS, 'videoAFF': videoAFF, 
         'videoOPR': videoOPR, 'videoSEN': videoSEN,'framePSPI': framePSPI}
     if transform:
@@ -103,6 +103,7 @@ def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, transform=None):
 
 
 def BGR2RGB(image):
-"""Convert BGR image to RGB.
-"""
+    """
+    Convert BGR image to RGB.
+    """
     return image[:,:,::-1]
