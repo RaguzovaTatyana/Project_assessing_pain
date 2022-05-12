@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from utils import open_file, get_frame
 
-def load_dataset(image_dir, label_dir):
+def load_dataset(image_dir, label_dir, val_subj_id, test_subj_id, subset):
     """
     Args:
         image_dir (string): Path to the image data "Images"
@@ -30,19 +30,6 @@ def load_dataset(image_dir, label_dir):
 
 
 def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, frameVASpath, transform=None):
-    """
-    Return: sample
-        an example of sample:
-            sample['image'] = np.ndarray WxHx3
-            sample['image_id'] = 'gf097t1aaaff001.png'
-            sample['video_id'] = 'gf097t1aaaff'
-            sample['au'] = np.ndarray (9,)
-            sample['fraamelabel'] = 0
-            sample['subj_id'] = '097-gf097'
-            sample['videoVAS] = 5.0
-            sample['framePSPI'] = 0.0
-            sample['aam'] = np.ndarray (132,)
-    """
     img_dir = image_files[idx][0]
     img_name = image_files[idx][1]
     image = cv2.imread(os.path.join(img_dir, img_name))
