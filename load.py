@@ -9,7 +9,7 @@ from utils import open_file, get_frame
 def load_dataset(image_dir, label_dir):
     """
     Args:
-        image_dir (string): Path to the image data "UNBCMcMaster_cropped/Images0.3"
+        image_dir (string): Path to the image data "Images"
         label_dir (string): Path to the label (pain level, etc.) "UNBCMcMaster"
         val_subj_id ([string]): list of paths containing validation data
         test_subj_id ([string]): list of paths containing test data
@@ -19,10 +19,15 @@ def load_dataset(image_dir, label_dir):
     frameVASpath = os.path.join(label_dir, 'Frame_Labels','PSPI')
     AUpath = os.path.join(label_dir, 'Frame_Labels', 'FACS')
     AAMpath = os.path.join(label_dir, 'AAM_landmarks')
+    image_files = []
     for root, dirs, files in os.walk(image_dir):
         print("root" + root)
         for name in sorted(files):
-            print(name)
+            if name[-3:]=='png' and ((name[2:5] in test_subj_id and subset=='test') or 
+            (name[2:5] in val_subj_id and subset=='val') or 
+            (not(name[2:5] in val_subj_id+test_subj_id) and subset=='train')):
+                image_filesa.append(name)
+
 
 def getItem(idx, image_files, seqVASpath, AUpath, AAMpath, frameVASpath, transform=None):
     """
