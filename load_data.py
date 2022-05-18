@@ -83,12 +83,15 @@ def load_dataset():
             
             # Create training and validation dataloaders
             weights = {}
+            labels = []
             for phase in ['train', 'val', 'test']:
                 for x in datasets[phase]:
-                    print(x['framePSPI'])
+                    labels.append(x)
+                    print(labels)
                 # labels = [x['framePSPI'] for x in datasets[phase]]
                 # print(labels)
-                # labels = np.stack(labels)
+                labels = np.stack(labels)
+                print(labels)
                 # classes, classweights = np.unique(labels, return_counts=True)
                 # classweights = np.reciprocal(classweights.astype(float))
                 # sampleweights = classweights[np.searchsorted(classes, labels)]
