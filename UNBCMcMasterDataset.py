@@ -56,29 +56,29 @@ class UNBCMcMasterDataset(Dataset):
         subj_id = subj_dir[1]
 
         name = os.path.join(self.seqVASpath, subj_id, video_id)
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         videoVAS = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'SEN', subj_id, video_id)
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         videoSEN = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'OPR', subj_id, video_id)
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         videoOPR = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'AFF', subj_id, video_id)
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         videoAFF = utils.get_frame(scorestr)
         # framePSPI
         name = os.path.join(self.frameVASpath, subj_id, video_id, img_name[:-4] + '_facs')
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         framePSPI = utils.get_frame(scorestr)   
         framelabel = 0+(framePSPI > 0)
 
         # frameAU
         name = os.path.join(self.AUpath, subj_id, video_id, img_name[:-4] + '_facs')
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         scorestr = [x.strip() for x in scorestr]
         au = np.zeros((64,))
         for line in scorestr:
@@ -93,7 +93,7 @@ class UNBCMcMasterDataset(Dataset):
 
         # frameAAM
         name = os.path.join(self.AAMpath, subj_id, video_id, img_name[:-4] + '_aam')
-        scorestr = utils.open_file()
+        scorestr = utils.open_file(name)
         aam = []
         for line in scorestr:
             words = [x.strip() for x in line.split(' ') if x]
