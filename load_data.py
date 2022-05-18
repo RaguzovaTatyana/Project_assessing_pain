@@ -14,7 +14,7 @@ def load_dataset():
     for rseed in [0, 2, 4, 6, 8]:
         utils.set_rseed(rseed)
 
-        image_dir = "../drive/MyDrive/detected"
+        image_dir = "../drive/MyDrive/detected/Images"
         label_dir = "../PAIN"
         if not os.path.isdir('./models_sf' + str(rseed)):
             os.mkdir('./models_sf' + str(rseed))
