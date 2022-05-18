@@ -114,3 +114,4 @@ def load_dataset():
         
             shuffle = {'train': True, 'val': False, 'test': False}
             dataloaders_dict = {x: torch.utils.data.DataLoader(datasets[x], batch_size=batch_size, shuffle=shuffle[x], num_workers=4, worker_init_fn=lambda l: [np.random.seed((rseed + l)), random.seed(rseed + l), torch.manual_seed(rseed+ l)]) for x in ['train', 'val', 'test']}
+    return dataloaders_dict
