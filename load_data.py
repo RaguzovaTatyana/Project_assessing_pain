@@ -68,12 +68,12 @@ def load_dataset():
         # start cross validation
         print(folders)
         for subj_left_id, subj_left_out in enumerate(folders):
-            utils.set_rseed(rseed)
-            test_subj = subj_left_out
-            train_id= range(len(folders))
-            train_id.pop(subj_left_id)
-            val_id = random.choice(train_id)
-            val_subj = folders[val_id]
+            # utils.set_rseed(rseed)
+            # test_subj = subj_left_out
+            # train_id= range(len(folders))
+            # train_id.pop(subj_left_id)
+            # val_id = random.choice(train_id)
+            # val_subj = folders[val_id]
 
             if os.path.isfile('./results_sf' + str(rseed) + '/' + str(subj_left_id) + '.npz'):
                 continue
