@@ -75,6 +75,7 @@ class UNBCMcMasterDataset(Dataset):
         scorestr = utils.open_file(name)
         framePSPI = utils.get_frame(scorestr)   
         framelabel = 0+(framePSPI > 0)
+        print(framePSPI)
 
         # frameAU
         name = os.path.join(self.AUpath, subj_id, video_id, img_name[:-4] + '_facs')
