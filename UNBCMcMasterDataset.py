@@ -73,9 +73,10 @@ class UNBCMcMasterDataset(Dataset):
         # framePSPI
         name = os.path.join(self.frameVASpath, subj_id, video_id, img_name[:-4] + '_facs')
         scorestr = utils.open_file(name)
+        print(scorestr)
         framePSPI = utils.get_frame(scorestr)   
         framelabel = 0+(framePSPI > 0)
-        print(framePSPI)
+        # print(framePSPI)
 
         # frameAU
         name = os.path.join(self.AUpath, subj_id, video_id, img_name[:-4] + '_facs')
@@ -109,7 +110,6 @@ class UNBCMcMasterDataset(Dataset):
         if self.transform:
             sample['image'] = self.transform(image)
 
-        print(sample)
         return sample
 
 
