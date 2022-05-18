@@ -69,9 +69,7 @@ def load_dataset():
         for subj_left_id, subj_left_out in enumerate(folders):
             utils.set_rseed(rseed)
             test_subj = subj_left_out
-            train_id = range(len(folders))
-            print(train_id)
-            print(subj_left_id)
+            train_id = list(range(len(folders)))
             train_id.pop(subj_left_id)
             val_id = random.choice(train_id)
             val_subj = folders[val_id]
