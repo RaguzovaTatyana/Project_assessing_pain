@@ -108,6 +108,7 @@ class UNBCMcMasterDataset(Dataset):
         if self.transform:
             sample['image'] = self.transform(image)
 
+        print(sample)
         return sample
 
 

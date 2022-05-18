@@ -85,7 +85,7 @@ def load_dataset():
             weights = {}
             for phase in ['train', 'val', 'test']:
                 for x in datasets[phase]:
-                    print(x)
+                    print(x['framePSPI'])
                 # labels = [x['framePSPI'] for x in datasets[phase]]
                 # print(labels)
                 # labels = np.stack(labels)
