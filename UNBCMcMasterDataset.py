@@ -4,7 +4,8 @@ import torch
 import os
 import cv2
 import numpy as np
-from utils import open_file, get_frame
+# from utils import utils.open_file, utils.get_frame
+import utils
 
 class UNBCMcMasterDataset(Dataset):
     def __init__(self, image_dir, label_dir, val_subj_id, test_subj_id, subset, transform=None):
@@ -55,44 +56,44 @@ class UNBCMcMasterDataset(Dataset):
         subj_id = subj_dir[1]
 
         name = os.path.join(self.seqVASpath, subj_id, video_id)
-        scorestr = open_file()
-        videoVAS = get_frame(scorestr)
+        scorestr = utils.open_file()
+        videoVAS = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'SEN', subj_id, video_id)
-        scorestr = open_file()
-        videoSEN = get_frame(scorestr)
+        scorestr = utils.open_file()
+        videoSEN = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'OPR', subj_id, video_id)
-        scorestr = open_file()
-        videoOPR = get_frame(scorestr)
+        scorestr = utils.open_file()
+        videoOPR = utils.get_frame(scorestr)
         
         name = os.path.join(os.path.split(self.seqVASpath)[0], 'AFF', subj_id, video_id)
-        scorestr = open_file()
-        videoAFF = get_frame(scorestr)
+        scorestr = utils.open_file()
+        videoAFF = utils.get_frame(scorestr)
         # framePSPI
         name = os.path.join(self.frameVASpath, subj_id, video_id, img_name[:-4] + '_facs')
-        scorestr = open_file()
-        framePSPI = get_frame(scorestr)   
+        scorestr = utils.open_file()
+        framePSPI = utils.get_frame(scorestr)   
         framelabel = 0+(framePSPI > 0)
 
         # frameAU
         name = os.path.join(self.AUpath, subj_id, video_id, img_name[:-4] + '_facs')
-        scorestr = open_file()
+        scorestr = utils.open_file()
         scorestr = [x.strip() for x in scorestr]
         au = np.zeros((64,))
         for line in scorestr:
             words = [x.strip() for x in line.split(' ') if x]
             aunumberstr = words[0]
             auintensitystr = words[1]
-            aunumber = get_frame(auintensitystr)
-            auintensity = get_frame(aunumber)
+            aunumber = utils.get_frame(auintensitystr)
+            auintensity = utils.get_frame(aunumber)
             au[int(aunumber)-1] = auintensity
 
         au = au[[3,5,6,9,11,19,24,25,42]]
 
         # frameAAM
         name = os.path.join(self.AAMpath, subj_id, video_id, img_name[:-4] + '_aam')
-        scorestr = open_file()
+        scorestr = utils.open_file()
         aam = []
         for line in scorestr:
             words = [x.strip() for x in line.split(' ') if x]
