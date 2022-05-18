@@ -87,13 +87,13 @@ def load_dataset():
                 for x in datasets[phase]:
                     print(x)
                 # labels = [x['framePSPI'] for x in datasets[phase]]
-                print(labels)
-                labels = np.stack(labels)
-                classes, classweights = np.unique(labels, return_counts=True)
-                classweights = np.reciprocal(classweights.astype(float))
-                sampleweights = classweights[np.searchsorted(classes, labels)]
-                classweights = classweights * sampleweights.shape[0] / np.sum(sampleweights) 
-                weights[phase] = {'classes':classes, 'classweights': classweights}
+                # print(labels)
+                # labels = np.stack(labels)
+                # classes, classweights = np.unique(labels, return_counts=True)
+                # classweights = np.reciprocal(classweights.astype(float))
+                # sampleweights = classweights[np.searchsorted(classes, labels)]
+                # classweights = classweights * sampleweights.shape[0] / np.sum(sampleweights) 
+                # weights[phase] = {'classes':classes, 'classweights': classweights}
         
             shuffle = {'train': True, 'val': False, 'test': False}
             dataloaders_dict = {x: torch.utils.data.DataLoader(datasets[x], batch_size=batch_size, shuffle=shuffle[x], num_workers=4, worker_init_fn=lambda l: [np.random.seed((rseed + l)), random.seed(rseed + l), torch.manual_seed(rseed+ l)]) for x in ['train', 'val', 'test']}
