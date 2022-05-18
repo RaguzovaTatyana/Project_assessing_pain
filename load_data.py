@@ -66,6 +66,7 @@ def load_dataset():
             folders += [subjects[i * fold_size: (i+1) * fold_size]]
 
         # start cross validation
+        print(folders)
         for subj_left_id, subj_left_out in enumerate(folders):
             utils.set_rseed(rseed)
             test_subj = subj_left_out
