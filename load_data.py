@@ -70,7 +70,7 @@ def load_dataset():
             utils.set_rseed(rseed)
             test_subj = subj_left_out
             train_id = range(len(folders))
-            print("train_id" + train_id)
+            print(train_id)
             print("subj_left_id" + subj_left_id)
             train_id.pop(subj_left_id)
             val_id = random.choice(train_id)
